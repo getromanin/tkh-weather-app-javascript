@@ -5,16 +5,22 @@ const app = express();
 
 require('dotenv').config()
 
-// const API_KEY = process.env.weatherAPIKey;
-// const API_KEY = '3901c8ea6c8c3aa81af4848a5bc00fdb'
-
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.set('view engine', 'ejs');
 
+// app.get works with the code below W/O using the locals object in the ejs file
+// app.get('/', function(req, res) {
+//   res.render('index', {
+//     weather: req.weather,
+//     error: req.error
+//   })
+// })
+
+// app.get works this way with using the locals object in ejs file
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index')
 })
 
 app.post('/', function(req, res) {
@@ -31,7 +37,21 @@ app.post('/', function(req, res) {
         error: 'Error, please try again'
       });
     } else {
-      console.log('body:', body);
+      let weather = JSON.parse(body);
+
+      if(weather.main == undefined) {
+        res.render('index', {
+          weather: null,
+          error: 'Error, please try again'
+        });
+      } else {
+        let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+
+        res.render('index', {
+          weather: weatherText,
+          error: null
+        });
+      }
     }
   })
 
