@@ -71,18 +71,18 @@ app.post('/', function(req, res) {
   })
 })
 
-// let port = process.env.PORT;
-// if (port == null || port == "") {
-//   port = 8000;
-// }
-//
-// app.listen(port);
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
+app.listen(port);
 
 // for dev server testing
 // app.listen(3000, function() {
 //   console.log('Example app listening on port 3000!');
 // })
 
-app.listen(process.env.PORT || 4000, function () {
-  console.log('Your node js server is running');
-})
+// app.listen(process.env.PORT || 4000, function () {
+//   console.log('Your node js server is running');
+// })
