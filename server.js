@@ -7,7 +7,7 @@ const request = require('request');
 // create a new instance of express
 const app = express();
 // pull in the .env module to hide our api credentials
-require('dotenv').config()
+require('dotenv').config({path: path.join(__dirname, '.env')})
 // allow access to our public static file
 app.use(express.static('public'));
 // allow access to our bodyParser
