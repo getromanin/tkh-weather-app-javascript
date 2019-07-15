@@ -15,18 +15,18 @@ app.use(bodyParser.urlencoded({ extended: true}));
 // set up EJS to be used
 app.set('view engine', 'ejs');
 
-// app.get works with the code below W/O using the locals object in the ejs file
-// app.get('/', function(req, res) {
-//   res.render('index', {
-//     weather: req.weather,
-//     error: req.error
-//   })
-// })
+app.get works with the code below W/O using the locals object in the ejs file
+app.get('/', function(req, res) {
+  res.render('index', {
+    weather: req.weather,
+    error: req.error
+  })
+})
 
 // app.get works this way with using the locals object in ejs file
-app.get('/', function(req, res) {
-  res.render('index')
-})
+// app.get('/', function(req, res) {
+//   res.render('index')
+// })
 // respond to the POST request on the route
 app.post('/', function(req, res) {
   console.log(req.body)
