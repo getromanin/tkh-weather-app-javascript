@@ -49,6 +49,8 @@ app.post('/', function(req, res) {
     } else {
       // store and parse through the JSON to make it readable
       let weather = JSON.parse(body);
+      console.log('weather:', weather)
+      console.log('weather.main', weather.main);
       // if we find an error i.e typo or empty call let the user know
       if(weather.main == undefined) {
         res.render('index', {
