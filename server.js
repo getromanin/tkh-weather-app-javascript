@@ -6,8 +6,6 @@ const bodyParser = require('body-parser');
 const request = require('request');
 // create a new instance of express
 const app = express();
-// pull in utilities for working with file and directory paths
-const path = require('path')
 // pull in the .env module to hide our api credentials
 require('dotenv').config()
 // allow access to our public static file
@@ -27,10 +25,6 @@ app.get('/', function(req, res) {
   // res.sendFile(path.join(__dirname, 'index'));
 })
 
-// app.get works this way with using the locals object in ejs file
-// app.get('/', function(req, res) {
-//   res.render('index')
-// })
 // respond to the POST request on the route
 app.post('/', function(req, res) {
   console.log(req.body)
@@ -41,10 +35,12 @@ app.post('/', function(req, res) {
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.weatherAPIKey}`
   // fetch the API using the request module
   request(url, function (err, response, body) {
+    debugger
     // if the api doesnt work let the user know
     if(err) {
       console.log('err:', err);
       console.log('response', response);
+      debugger
       res.render('index', {
         weather: null,
         error: 'Error, please try again'
