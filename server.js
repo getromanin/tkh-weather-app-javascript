@@ -15,6 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true}));
 // set up EJS to be used
 app.set('view engine', 'ejs');
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
 // app.get works with the code below W/O using the locals object in the ejs file
 app.get('/', function(req, res) {
   res.render('index', {
@@ -67,10 +72,6 @@ app.post('/', function(req, res) {
   })
 })
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
 app.listen(port);
 
 // for dev server testing
