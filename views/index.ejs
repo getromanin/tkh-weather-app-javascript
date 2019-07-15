@@ -14,12 +14,12 @@
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
         <!-- EJS code using locals object -->
-        <% if(weather !== null){ %>
-          <p><%= weather %></p>
+        <% if(locals.weather !== null){ %>
+          <p><%= locals.weather %></p>
         <% } %>
 
-        <% if(error !== null){ %>
-          <p><%= error %></p>
+        <% if(locals.error !== null){ %>
+          <p><%= locals.error %></p>
         <% } %>
 
       </fieldset>
