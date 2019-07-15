@@ -32,6 +32,7 @@ app.post('/', function(req, res) {
   // grab the city text from the form/req.body
   let city = req.body.city;
   // creatre a URL string from the API
+  console.log('process.env.weatherAPIKey:', process.env.weatherAPIKey);
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.weatherAPIKey}`
   // fetch the API using the request module
   request(url, function (err, response, body) {
