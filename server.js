@@ -1,7 +1,5 @@
 // pull in express module
 const express = require('express');
-// pull in the .env module to hide our api credentials
-require('dotenv').config({path: path.join(__dirname, '.env')})
 // pull in bodyparser middleware to extract the body and expose on req.body
 const bodyParser = require('body-parser');
 // pull in the requst module
@@ -9,6 +7,8 @@ const request = require('request');
 // create a new instance of express
 const app = express();
 const path = require('path');
+// pull in the .env module to hide our api credentials
+// require('dotenv').config({path: path.join(__dirname, '.env')})
 // allow access to our public static file
 app.use(express.static('public'));
 // allow access to our bodyParser
@@ -33,7 +33,6 @@ app.post('/', function(req, res) {
   // grab the city text from the form/req.body
   let city = req.body.city;
   // creatre a URL string from the API
-  console.log('process.env.weatherAPIKey:', process.env.weatherAPIKey);
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.weatherAPIKey}`
   // fetch the API using the request module
   request(url, function (err, response, body) {
