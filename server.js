@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
   // })
   // res.sendFile(path.join(__dirname, 'index'));
 })
-
+console.log(require('dotenv').config())
 // respond to the POST request on the route
 app.post('/', function(req, res) {
   console.log(req.body)
@@ -33,7 +33,7 @@ app.post('/', function(req, res) {
   let city = req.body.city;
   // creatre a URL string from the API
   console.log('process.env.weatherAPIKey:', process.env.weatherAPIKey);
-  let url = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.weatherAPIKey}`
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.weatherAPIKey}`
   // fetch the API using the request module
   request(url, function (err, response, body) {
     debugger
