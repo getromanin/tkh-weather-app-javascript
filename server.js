@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const request = require('request');
 // create a new instance of express
 const app = express();
+// pull in utilities for working with file and directory paths
+const path = require('path')
 // pull in the .env module to hide our api credentials
 require('dotenv').config()
 // allow access to our public static file
@@ -76,7 +78,11 @@ app.post('/', function(req, res) {
 //
 // app.listen(port);
 
-for dev server testing
-app.listen(3000, function() {
-  console.log('Example app listening on port 3000!');
+// for dev server testing
+// app.listen(3000, function() {
+//   console.log('Example app listening on port 3000!');
+// })
+
+app.listen(process.env.PORT || 4000, function () {
+  console.log('Your node js server is running');
 })
