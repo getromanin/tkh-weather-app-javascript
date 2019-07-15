@@ -19,11 +19,12 @@ app.set('view engine', 'ejs');
 
 // app.get works with the code below W/O using the locals object in the ejs file
 app.get('/', function(req, res) {
+  res.render('index')
   // res.render('index', {
   //   weather: req.weather,
   //   error: req.error
   // })
-  res.sendFile(path.join(__dirname, 'index'));
+  // res.sendFile(path.join(__dirname, 'index'));
 })
 
 // app.get works this way with using the locals object in ejs file
