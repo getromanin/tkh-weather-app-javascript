@@ -43,7 +43,7 @@ app.post('/', function(req, res) {
       debugger
       res.render('index', {
         weather: null,
-        error: 'Error, please try again'
+        error: 'Error, please try again sucka'
       });
       // otherwise move on to the API
     } else {
@@ -53,7 +53,7 @@ app.post('/', function(req, res) {
       if(weather.main == undefined) {
         res.render('index', {
           weather: null,
-          error: 'Error, please try again'
+          error: 'Error, please try again mother effer'
         });
       // otherwise give the user the weather
       } else {
