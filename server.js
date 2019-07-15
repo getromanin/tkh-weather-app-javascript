@@ -67,6 +67,13 @@ app.post('/', function(req, res) {
   })
 })
 
-app.listen(3000, function() {
-  console.log('Example app listening on port 3000!');
-})
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
+
+// for dev server testing
+// app.listen(3000, function() {
+//   console.log('Example app listening on port 3000!');
+// })
