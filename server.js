@@ -19,10 +19,11 @@ app.set('view engine', 'ejs');
 
 // app.get works with the code below W/O using the locals object in the ejs file
 app.get('/', function(req, res) {
-  res.render('index', {
-    weather: req.weather,
-    error: req.error
-  })
+  // res.render('index', {
+  //   weather: req.weather,
+  //   error: req.error
+  // })
+  res.sendFile(path.join(__dirname, 'index'));
 })
 
 // app.get works this way with using the locals object in ejs file
@@ -71,18 +72,18 @@ app.post('/', function(req, res) {
   })
 })
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
-
-app.listen(port);
+// let port = process.env.PORT;
+// if (port == null || port == "") {
+//   port = 8000;
+// }
+//
+// app.listen(port);
 
 // for dev server testing
 // app.listen(3000, function() {
 //   console.log('Example app listening on port 3000!');
 // })
 
-// app.listen(process.env.PORT || 4000, function () {
-//   console.log('Your node js server is running');
-// })
+app.listen(process.env.PORT || 4000, function () {
+  console.log('Your node js server is running');
+})
