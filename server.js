@@ -46,7 +46,7 @@ app.post('/', function(req, res) {
         weather: null,
         error: 'Error, please try again sucka'
       });
-      // otherwise move on to the API
+      // otherwise move  on to the API
     } else {
       // store and parse through the JSON to make it readable
       let weather = JSON.parse(body);
