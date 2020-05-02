@@ -3,10 +3,12 @@ body {
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
 }
+/* full container  */
 .container {
   width: 600px;
   margin: 0 auto;
 }
+
 fieldset {
   display: block;
   -webkit-margin-start: 0px;
