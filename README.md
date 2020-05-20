@@ -1,4 +1,4 @@
-![imageHere](img/enterACity.gif)
+![imageHere](public/images/enterACity.gif)
 
 ### OpenWeather API App with Node.js
 --- 
