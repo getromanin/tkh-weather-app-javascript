@@ -79,6 +79,14 @@ p {
 }
 
 .madeByGetromanContainer {
+  display: flex;
+  justify-content: center;
+  height: 100%;
   grid-column: 2 / 2;
   grid-row: 1 / 2;
+}
+
+.madeByGetromanLogo {
+  height: 60px;
+  width: 60px;
 }
