@@ -56,7 +56,7 @@ app.post('/', function(req, res) {
       if(weather.main == undefined) {
         res.render('index', {
           weather: null,
-          error: 'Error, please try again mother effer'
+          error: 'Error, please try again.'
         });
       // otherwise give the user the weather
       } else {
